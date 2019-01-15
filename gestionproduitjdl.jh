@@ -1,0 +1,50 @@
+enum ProduitStatus {
+    DISPONIBLE, NON_DISPONIBLE
+}
+
+entity Produit {
+	code String required,
+    nom String required,
+    prixAchat BigDecimal required,
+    prixVente BigDecimal required,
+    quantite BigDecimal required,
+    status ProduitStatus required
+}
+
+entity Client {
+	nom String required    
+}
+
+
+
+entity Commande {
+	numero String required,
+    //produit Produit required,
+	//client Client required,
+	quantite BigDecimal required
+}
+
+relationship ManyToOne {
+    Commande to Client
+}
+
+relationship ManyToOne {
+	Commande to Produit
+}
+
+// an ignored comment
+/** Vente entity */
+entity Vente {
+	code String required,
+    //commande Commande,
+	//produit Produit required,
+	//client Client required,
+	quantite BigDecimal required,
+    prixUnitaire BigDecimal required
+}
+
+relationship ManyToOne {
+    Vente to Client,
+    Vente to Commande,
+    Vente to Produit
+}
