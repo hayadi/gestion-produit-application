@@ -1,0 +1,11 @@
+version: '2'
+services:
+    gestionproduitapplication-postgresql:
+        image: postgres:10.4
+        # volumes:
+        #     - ~/volumes/jhipster/GestionProduitApplication/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=GestionProduitApplication
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
