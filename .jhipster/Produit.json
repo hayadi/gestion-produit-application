@@ -1,0 +1,72 @@
+{
+    "name": "Produit",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prixAchat",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prixVente",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "ProduitStatus",
+            "fieldValues": "DISPONIBLE,NON_DISPONIBLE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "commande",
+            "otherEntityName": "commande",
+            "otherEntityRelationshipName": "produit"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vente",
+            "otherEntityName": "vente",
+            "otherEntityRelationshipName": "produit"
+        }
+    ],
+    "changelogDate": "20190115102422",
+    "entityTableName": "produit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "GestionProduitApplication",
+    "applications": "*",
+    "microserviceName": "GestionProduitApplication"
+}
