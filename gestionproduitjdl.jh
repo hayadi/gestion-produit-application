@@ -1,0 +1,45 @@
+entity Produit {
+	code String required,
+    nom String required,
+    prixAchat BigDecimal required,
+    prixVente BigDecimal required,
+    quantite BigDecimal required,
+    /**Status : disponible, nondisponible*/
+    status String required
+}
+
+entity Client {
+	nom String required    
+}
+
+// an ignored comment
+/** Vente entity */
+entity Vente {
+	code String required,
+    commande Commande,
+	produit Produit required,
+	client Client required,
+	quantite BigDecimal required,
+    prixUnitaire BigDecimal required
+}
+
+
+entity Commande {
+	numero String required,
+    produit Produit required,
+	client Client required,
+	quantite BigDecimal required
+}
+
+relationship ManyToOne {
+    Vente{client} to Client,
+    Vente{commande} to Commande,
+    Vente{produit} to Produit,
+	Commande{produit} to Produit,
+    Commande{client} to Client
+}
+
+/*
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}*/
