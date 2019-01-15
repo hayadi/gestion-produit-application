@@ -1,0 +1,49 @@
+{
+    "name": "Commande",
+    "fields": [
+        {
+            "fieldName": "numero",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantite",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "produit",
+            "otherEntityName": "produit",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vente",
+            "otherEntityName": "vente",
+            "otherEntityRelationshipName": "commande"
+        }
+    ],
+    "changelogDate": "20190115102900",
+    "entityTableName": "commande",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "GestionProduitApplication",
+    "applications": "*",
+    "microserviceName": "GestionProduitApplication"
+}
